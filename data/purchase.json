@@ -1,0 +1,61 @@
+[
+    {
+      "purch_id": 401,
+      "cust_id": 101,
+      "date": "2022-08-12",
+      "product_id": 501,
+      "amount": 5,
+      "total_price": 250.0,
+      "shop_id": 601,
+      "employee_id": 701
+    },
+    {
+      "purch_id": 402,
+      "cust_id": 102,
+      "date": "2021-11-23",
+      "product_id": 502,
+      "amount": 3,
+      "total_price": 150.0,
+      "shop_id": 602,
+      "employee_id": 702
+    },
+    {
+      "purch_id": 403,
+      "cust_id": 103,
+      "date": "2022-02-18",
+      "product_id": 503,
+      "amount": 10,
+      "total_price": 500.0,
+      "shop_id": 603,
+      "employee_id": 703
+    },
+    {
+      "purch_id": 404,
+      "cust_id": 104,
+      "date": "2021-07-08",
+      "product_id": 504,
+      "amount": 1,
+      "total_price": 100.0,
+      "shop_id": 604
+    },
+    {
+        "purch_id": 405,
+        "cust_id": 105,
+        "date": "2023-01-15",
+        "product_id": 505,
+        "amount": 8,
+        "total_price": 400.0,
+        "shop_id": 605,
+        "employee_id": 705
+    },
+    {
+        "purch_id": 406,
+        "cust_id": 106,
+        "date": "2022-12-05",
+        "product_id": 506,
+        "amount": 4,
+        "total_price": 200.0,
+        "shop_id": 606,
+        "employee_id": 706
+    }
+]  

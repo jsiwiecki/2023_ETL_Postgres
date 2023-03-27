@@ -1,0 +1,39 @@
+[
+    {
+      "product_id": 501,
+      "name": "Widget Pro",
+      "category": "Electronics",
+      "unit_price": 50.0
+    },
+    {
+      "product_id": 502,
+      "name": "Gizmo XL",
+      "category": "Gadgets",
+      "unit_price": 50.0
+    },
+    {
+      "product_id": 503,
+      "name": "Super Charger",
+      "category": "Accessories",
+      "unit_price": 50.0
+    },
+    {
+      "product_id": 504,
+      "name": "Ultra Laptop",
+      "category": "Computers",
+      "unit_price": 100.0
+    },
+    {
+      "product_id": 505,
+      "name": "Smart Watch",
+      "category": "Wearables",
+      "unit_price": 50.0
+    },
+    {
+      "product_id": 506,
+      "name": "Bluetooth Headphones",
+      "category": "Audio",
+      "unit_price": 50.0
+    }
+]
+  

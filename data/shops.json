@@ -1,0 +1,50 @@
+[
+    {
+      "shop_id": 601,
+      "street": "123 Oak St",
+      "city": "New York",
+      "size": "Large"
+    },
+    {
+      "shop_id": 602,
+      "street": "789 Maple Ave",
+      "city": "Los Angeles",
+      "size": "Medium"
+    },
+    {
+      "shop_id": 603,
+      "street": "456 Elm Dr",
+      "city": "Chicago",
+      "size": "Large"
+    },
+    {
+      "shop_id": 604,
+      "street": "321 Pine Pl",
+      "city": "Houston",
+      "size": "Small"
+    },
+    {
+      "shop_id": 605,
+      "street": "654 Birch Blvd",
+      "city": "Phoenix",
+      "size": "Medium"
+    },
+    {
+      "shop_id": 606,
+      "street": "987 Cedar St",
+      "city": "Philadelphia",
+      "size": "Medium"
+    },
+    {
+      "shop_id": 607,
+      "street": "258 Willow Rd",
+      "city": "San Antonio",
+      "size": "Large"
+    },
+    {
+      "shop_id": 608,
+      "street": "159 Spruce Ln",
+      "city": "Seatle",
+      "size": "Large"
+    }
+]

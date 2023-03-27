@@ -1,0 +1,38 @@
+[
+    {
+      "address_id": 301,
+      "cust_id": 101,
+      "street": "123 Oak St",
+      "post_code": "10001"
+    },
+    {
+      "address_id": 302,
+      "cust_id": 102,
+      "street": "789 Maple Ave",
+      "post_code": "20002"
+    },
+    {
+      "address_id": 303,
+      "cust_id": 103,
+      "street": "456 Elm Dr",
+      "post_code": "30003"
+    },
+    {
+      "address_id": 304,
+      "cust_id": 104,
+      "street": "321 Pine Pl",
+      "post_code": "40004"
+    },
+    {
+      "address_id": 305,
+      "cust_id": 105,
+      "street": "654 Birch Blvd",
+      "post_code": "50005"
+    },
+    {
+      "address_id": 306,
+      "cust_id": 106,
+      "street": "987 Cedar St",
+      "post_code": "60006"
+   }
+  ]

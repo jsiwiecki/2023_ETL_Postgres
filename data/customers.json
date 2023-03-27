@@ -1,0 +1,37 @@
+[
+    {
+      "cust_id": 101,
+      "Name": "Orion Tech Inc.",
+      "since": "2019-05-15",
+      "group": "1"
+    },
+    {
+      "cust_id": 102,
+      "Name": "Bright Solutions LLC",
+      "since": "2020-02-10",
+      "group": "3"
+    },
+    {
+      "cust_id": 103,
+      "Name": "Nimbus Networks",
+      "since": "2018-07-25",
+      "group": "1"
+    },
+    {
+      "cust_id": 104,
+      "Name": "Crescent Innovations",
+      "since": "2021-12-14",
+      "group": "2"
+    },
+    {
+      "cust_id": 105,
+      "Name": "AstroCorp",
+      "since": "2017-03-21",
+      "group": "2"
+    },
+    {
+      "cust_id": 106,
+      "Name": "TerraSoft Limited",
+      "since": "2016-09-30",
+      "group": "1"
+    },
