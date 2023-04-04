@@ -1,5 +1,17 @@
 # 2023_ETL_Postgres
 
+### Brief description
+This project is about to ingest json data in a PostgresSQL database and then using PySpark for data processing.
+
+
+### Technology used
+- PostgreSQL, 
+- Docker, 
+- SQLAlchemy, 
+- Python,
+- PySpark.
+
+
 ### Data Model
 1. Customer
 * CUST_ID (Primary Key)
