@@ -1,8 +1,9 @@
 version: '3.8'
 
+
 services:
   postgres:
-    image: postgres:13-alpine
+    build: ./postgres
     container_name: postgres
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
@@ -13,11 +14,11 @@ services:
     networks:
       - backend
 
-  create_tables:
+  tables_data:
     build:
       context: ../
       dockerfile: Docker/Dockerfile
-    container_name: create_tables
+    container_name: tables_data
     depends_on:
       - postgres
     environment:
