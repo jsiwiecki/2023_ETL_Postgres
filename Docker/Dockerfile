@@ -29,6 +29,7 @@ RUN pip install --trusted-host pypi.python.org -r requirements.txt
 
 COPY scripts/create_tables.py .
 COPY scripts/ingest_data.py .
+COPY scripts/schemas.py .
 COPY data/ .
 
 ENV POSTGRES_HOST="postgres"
