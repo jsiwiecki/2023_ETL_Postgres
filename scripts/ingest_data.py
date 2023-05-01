@@ -1,3 +1,5 @@
+# Script ingesting data to DB
+
 import os
 from pyspark.sql import SparkSession
 from schemas import adress_schema, customers_schema, employees_schema, products_schema, purchase_schema, representatives_schema, shops_schema
