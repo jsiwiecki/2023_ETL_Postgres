@@ -1,24 +1,26 @@
 import os
-from sqlalchemy import create_engine, Column, Integer, String, Date, ForeignKey, Numeric
-from sqlalchemy.orm import relationship, declarative_base
+from sqlalchemy import create_engine, Column, Integer, String, Date, Numeric
+from sqlalchemy.orm import declarative_base
+from sqlalchemy import inspect
+
 
 Base = declarative_base()
 
-class Customer(Base):
+class Customers(Base):
     """
     Customer table with customer information.
     """
-    __tablename__ = 'customer'
+    __tablename__ = 'customers'
     cust_id = Column(Integer, primary_key=True)
     name = Column(String(255), nullable=False)
     since = Column(Date, nullable=False)
     group = Column(String(255))
 
-class Representative(Base):
+class Representatives(Base):
     """
     Representative table with representative information.
     """
-    __tablename__ = 'representative'
+    __tablename__ = 'representatives'
     representative_id = Column(Integer, primary_key=True)
     name = Column(String(255), nullable=False)
     surname = Column(String(255), nullable=False)
@@ -30,15 +32,15 @@ class Address(Base):
     """
     __tablename__ = 'address'
     address_id = Column(Integer, primary_key=True)
-    cust_id = Column(Integer, ForeignKey('customer.cust_id'))
+    cust_id = Column(Integer)
     street = Column(String(255))
     post_code = Column(String(255))
 
-class Product(Base):
+class Products(Base):
     """
     Product table with product information.
     """
-    __tablename__ = 'product'
+    __tablename__ = 'products'
     product_id = Column(Integer, primary_key=True)
     name = Column(String(255))
     category = Column(String(255))
@@ -62,7 +64,7 @@ class Employees(Base):
     employee_id = Column(Integer, primary_key=True)
     name = Column(String(255), nullable=False)
     surname = Column(String(255), nullable=False)
-    shop_id = Column(Integer, ForeignKey('shops.shop_id'))
+    shop_id = Column(Integer)
     since = Column(Date, nullable=False)
 
 class Purchase(Base):
@@ -71,13 +73,13 @@ class Purchase(Base):
     """
     __tablename__ = 'purchase'
     purch_id = Column(Integer, primary_key=True)
-    cust_id = Column(Integer, ForeignKey('customer.cust_id'))
+    cust_id = Column(Integer)
     date = Column(Date)
-    product_id = Column(Integer, ForeignKey('product.product_id'))
+    product_id = Column(Integer)
     amount = Column(Integer)
     total_price = Column(Numeric)
-    shop_id = Column(Integer, ForeignKey('shops.shop_id'))
-    employee_id = Column(Integer, ForeignKey('employees.employee_id'))
+    shop_id = Column(Integer)
+    employee_id = Column(Integer)
 
 
 def create_tables():
@@ -89,14 +91,33 @@ def create_tables():
         f"{os.environ['POSTGRES_USER']}:"
         f"{os.environ['POSTGRES_PASSWORD']}@"
         f"{os.environ['POSTGRES_HOST']}:"
-        "5432/"
+        f"{os.environ['POSTGRES_PORT']}/"
         f"{os.environ['POSTGRES_DB']}"
     )
 
-    engine = create_engine(db_url)
+    engine = create_engine(db_url, echo = True)
 
-    Base.metadata.create_all(engine)
+    inspector = inspect(engine)
+    table_names = inspector.get_table_names()
+
+    required_tables = [
+        "customers",
+        "representatives",
+        "address",
+        "products",
+        "shops",
+        "employees",
+        "purchase",
+    ]
+
+    # Check if all required tables exist
+    if all(table in table_names for table in required_tables):
+        print("All tables already exist. Skipping table creation.")
+    else:
+    # Create predefined tables
+        print("Creating tables...")
+        Base.metadata.create_all(engine)
+        print("Tables created successfully.")
 
 if __name__ == '__main__':
     create_tables()
-    
