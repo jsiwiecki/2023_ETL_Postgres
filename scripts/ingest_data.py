@@ -49,17 +49,15 @@ for file in files:
     dataframes[table_name] = data
 
 dataframes['shops'].show()
-dataframes['products'].show()
-
-products_df = dataframes['products']
 
 print('Przed zapisaem')
 
-products_df.select("*") \
+for table_name, dataframe in dataframes.items():
+    dataframes[table_name].select("*") \
     .write.format("jdbc") \
     .option("url", 'jdbc:postgresql://postgres:5432/example_db') \
     .option("driver", "org.postgresql.Driver") \
-    .option("dbtable", "products") \
+    .option("dbtable", table_name) \
     .option("user", "postgres") \
     .option("password", 'postgres') \
     .mode("overwrite") \
@@ -68,32 +66,4 @@ products_df.select("*") \
 
 print("Po zapisie")
 
-import psycopg2
-
-conn = psycopg2.connect(
-    dbname="example_db",
-    user="postgres",
-    password="postgres",
-    host="postgres",
-    port="5432"
-)
-
-
-print(f"Connection status: {conn}")
-conn.close()
-
-
-
-
-#dataframes['shops'].write \
-#    .jdbc(f"jdbc:postgresql://postgres:postgres@localhost:5432/example_db", table_name, mode="overwrite", properties=properties)
-
-
-
-#for table_name, dataframe in dataframes.items():
-#    dataframe.write \
-#        .jdbc(f"jdbc:postgresql://postgres:5432/example_db", table_name, mode="overwrite", properties=properties)
-
 spark.stop()
-
-### How to connect to postgres and save data?

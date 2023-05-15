@@ -3,7 +3,7 @@
 from pyspark.sql.types import StructType, StructField, LongType, StringType, DateType, DoubleType, IntegerType
 
 # Adress schema
-adress_schema = StructType([
+address_schema = StructType([
     StructField("address_id", IntegerType(), True),
     StructField("cust_id", IntegerType(), True),
     StructField("street", StringType(), True),
