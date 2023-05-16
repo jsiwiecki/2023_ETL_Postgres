@@ -1,8 +1,9 @@
 version: '3.8'
 
+
 services:
   postgres:
-    image: postgres:13-alpine
+    build: ./postgres
     container_name: postgres
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
@@ -13,22 +14,6 @@ services:
     networks:
       - backend
 
-  create_tables:
-    build:
-      context: ../
-      dockerfile: Docker/Dockerfile
-    container_name: create_tables
-    depends_on:
-      - postgres
-    environment:
-      POSTGRES_HOST: postgres
-      POSTGRES_PORT: 5432
-      POSTGRES_USER: ${POSTGRES_USER}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      POSTGRES_DB: ${POSTGRES_DB}
-    networks:
-      - backend
-
   adminer:
     image: adminer:4.8.1-standalone
     container_name: adminer
@@ -36,6 +21,22 @@ services:
       - postgres
     ports:
       - "8080:8080"
+    networks:
+      - backend
+
+  tables_data:
+    build:
+      context: ../
+      dockerfile: Docker/Dockerfile
+    container_name: tables_data
+    depends_on:
+      - adminer
+    environment:
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: 5432
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
     networks:
       - backend
 
