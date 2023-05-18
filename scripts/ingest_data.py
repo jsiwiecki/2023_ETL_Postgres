@@ -2,7 +2,15 @@
 
 import os
 from pyspark.sql import SparkSession
-from schemas import address_schema, customers_schema, employees_schema, products_schema, purchase_schema, representatives_schema, shops_schema
+from schemas import (
+    ADDRESS_SCHEMA,
+    CUSTOMERS_SCHEMA,
+    EMPLOYEES_SCHEMA,
+    PRODUCTS_SCHEMA,
+    PURCHASE_SCHEMA,
+    REPRESENTATIVES_SCHEMA,
+    SHOPS_SCHEMA
+)
 
 
 spark = (
@@ -30,13 +38,13 @@ files = [
     ]
 
 schemas = {
-    "address": address_schema,
-    "customers": customers_schema,
-    "employees": employees_schema,
-    "products": products_schema,
-    "purchase": purchase_schema,
-    "representatives": representatives_schema,
-    "shops": shops_schema
+    "address": ADDRESS_SCHEMA,
+    "customers": CUSTOMERS_SCHEMA,
+    "employees": EMPLOYEES_SCHEMA,
+    "products": PRODUCTS_SCHEMA,
+    "purchase": PURCHASE_SCHEMA,
+    "representatives": REPRESENTATIVES_SCHEMA,
+    "shops": SHOPS_SCHEMA
 }
 
 dataframes = {}
