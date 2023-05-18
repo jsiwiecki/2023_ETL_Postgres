@@ -13,11 +13,11 @@ spark = (
     .getOrCreate()
 )
 
-properties = {
-    "user": os.environ["POSTGRES_USER"],
-    "password": os.environ["POSTGRES_PASSWORD"],
-    "driver": "org.postgresql.Driver"
-}
+#properties = {
+#    "user": os.environ["POSTGRES_USER"],
+#    "password": os.environ["POSTGRES_PASSWORD"],
+#    "driver": "org.postgresql.Driver"
+#}
 
 files = [
         "customers.json",
@@ -40,7 +40,6 @@ schemas = {
 }
 
 dataframes = {}
-
 
 for file in files:
     table_name = os.path.splitext(file)[0]
