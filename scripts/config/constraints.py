@@ -1,7 +1,8 @@
 '''
 Module containing constraints
 '''
-from schemas import (
+
+from config.schemas import (
     ADDRESS_SCHEMA,
     CUSTOMERS_SCHEMA,
     EMPLOYEES_SCHEMA,

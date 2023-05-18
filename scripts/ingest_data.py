@@ -2,31 +2,23 @@
 
 import os
 from pyspark.sql import SparkSession
-from constraints import files
-from schemas import list_of_schemas
+
+from service.data_read import create_dataframes
+from config.constraints import files, list_of_schemas
 
 
 spark = (
     SparkSession.builder
-    .appName("JSON Ingestion")
+    .appName("JSON_Ingestion")
     .master("local")
     .config("spark.jars.packages", "org.postgresql:postgresql:42.4.2")
     .getOrCreate()
 )
 
-#properties = {
-#    "user": os.environ["POSTGRES_USER"],
-#    "password": os.environ["POSTGRES_PASSWORD"],
-#    "driver": "org.postgresql.Driver"
-#}
 
 dataframes = {}
 
-for file in files:
-    table_name = os.path.splitext(file)[0]
-    data = spark.read.option('multiline', True).schema(list_of_schemas[table_name]).json(f'data/{file}')
-    schema = data.schema
-    dataframes[table_name] = data
+dataframes = create_dataframes(files, list_of_schemas, spark)
 
 dataframes['shops'].show()
 

@@ -32,11 +32,10 @@ ENV POSTGRES_USER=${POSTGRES_USER}
 ENV POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
 ENV POSTGRES_DB=${POSTGRES_DB}
 
-COPY scripts/create_tables.py scripts/
-COPY scripts/ingest_data.py scripts/
-COPY scripts/schemas.py scripts/
+ENV PYTHONPATH=/app/scripts:${PYTHONPATH}
+
+COPY scripts/ scripts/
 COPY data/ data/
-COPY scripts/wait-for-postgres.sh scripts/
 
 RUN chmod +x scripts/wait-for-postgres.sh
 
