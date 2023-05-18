@@ -1,10 +1,10 @@
 # Script ingesting data to DB
 
-import os
 from pyspark.sql import SparkSession
 
 from service.data_read import create_dataframes
 from config.constraints import files, list_of_schemas
+from transformations import general
 
 
 spark = (
@@ -22,7 +22,7 @@ dataframes = create_dataframes(files, list_of_schemas, spark)
 
 dataframes['shops'].show()
 
-print('Przed zapisaem')
+print('Before saving')
 
 for table_name, dataframe in dataframes.items():
     dataframes[table_name].select("*") \
@@ -36,6 +36,6 @@ for table_name, dataframe in dataframes.items():
     .save()
 
 
-print("Po zapisie")
+print("After saving")
 
 spark.stop()
