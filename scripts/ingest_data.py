@@ -3,16 +3,7 @@
 import os
 from pyspark.sql import SparkSession
 from constraints import files
-from schemas import (
-    ADDRESS_SCHEMA,
-    CUSTOMERS_SCHEMA,
-    EMPLOYEES_SCHEMA,
-    PRODUCTS_SCHEMA,
-    PURCHASE_SCHEMA,
-    REPRESENTATIVES_SCHEMA,
-    SHOPS_SCHEMA,
-    list_of_schemas
-)
+from schemas import list_of_schemas
 
 
 spark = (

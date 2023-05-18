@@ -12,16 +12,6 @@ from pyspark.sql.types import (
     IntegerType
 )
 
-#List of schemas
-list_of_schemas = {
-    "address": ADDRESS_SCHEMA,
-    "customers": CUSTOMERS_SCHEMA,
-    "employees": EMPLOYEES_SCHEMA,
-    "products": PRODUCTS_SCHEMA,
-    "purchase": PURCHASE_SCHEMA,
-    "representatives": REPRESENTATIVES_SCHEMA,
-    "shops": SHOPS_SCHEMA
-}
 
 # Adress schema
 ADDRESS_SCHEMA = StructType(
