@@ -10,7 +10,8 @@ from schemas import (
     PRODUCTS_SCHEMA,
     PURCHASE_SCHEMA,
     REPRESENTATIVES_SCHEMA,
-    SHOPS_SCHEMA
+    SHOPS_SCHEMA,
+    list_of_schemas
 )
 
 
@@ -28,21 +29,11 @@ spark = (
 #    "driver": "org.postgresql.Driver"
 #}
 
-schemas = {
-    "address": ADDRESS_SCHEMA,
-    "customers": CUSTOMERS_SCHEMA,
-    "employees": EMPLOYEES_SCHEMA,
-    "products": PRODUCTS_SCHEMA,
-    "purchase": PURCHASE_SCHEMA,
-    "representatives": REPRESENTATIVES_SCHEMA,
-    "shops": SHOPS_SCHEMA
-}
-
 dataframes = {}
 
 for file in files:
     table_name = os.path.splitext(file)[0]
-    data = spark.read.option('multiline', True).schema(schemas[table_name]).json(f'data/{file}')
+    data = spark.read.option('multiline', True).schema(list_of_schemas[table_name]).json(f'data/{file}')
     schema = data.schema
     dataframes[table_name] = data
 
