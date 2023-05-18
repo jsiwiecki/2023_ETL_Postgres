@@ -2,6 +2,7 @@
 
 import os
 from pyspark.sql import SparkSession
+from constraints import files
 from schemas import (
     ADDRESS_SCHEMA,
     CUSTOMERS_SCHEMA,
@@ -26,16 +27,6 @@ spark = (
 #    "password": os.environ["POSTGRES_PASSWORD"],
 #    "driver": "org.postgresql.Driver"
 #}
-
-files = [
-        "customers.json",
-        "address.json",
-        "shops.json",
-        "employees.json",
-        "products.json",
-        "purchase.json",
-        "representatives.json"
-    ]
 
 schemas = {
     "address": ADDRESS_SCHEMA,
